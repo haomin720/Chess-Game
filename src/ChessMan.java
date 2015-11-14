@@ -1,16 +1,38 @@
+import java.util.ArrayList;
+
 public class ChessMan{
 
-	public class Rook extends ChessMan{
-		public int row;
-		public int col;
+	public static class Rook extends ChessMan{
 		public String color;
 		public boolean alive;
+		public int val;
+		public int position;
+		public ArrayList<Integer> possibleMoves;
 
-		public Rook(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
+		public Rook(int position, String color, boolean alive, int val){
 			this.color = color;
 			this.alive = alive;
+			this.val = val;
+			this.position = position;
+			this.possibleMoves = new ArrayList<Integer>();
+		}
+		
+		
+		public void take(){
+			
+		}
+	}
+	public static class Knight extends ChessMan{
+		public String color;
+		public boolean alive;
+		public int val;
+		public int position;
+		
+		public Knight(int pos, String color, boolean alive, int val){
+			this.color = color;
+			this.alive = alive;
+			this.val = val;
+			this.position = pos;
 		}
 		
 		public void move(){
@@ -21,17 +43,17 @@ public class ChessMan{
 			
 		}
 	}
-	public class Knight extends ChessMan{
-		public int row;
-		public int col;
+	public static class Bishop extends ChessMan{
 		public String color;
 		public boolean alive;
+		public int val;
+		public int position;
 		
-		public Knight(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
+		public Bishop(int position, String color, boolean alive, int val){
 			this.color = color;
 			this.alive = alive;
+			this.val = val;
+			this.position = position;
 		}
 		
 		public void move(){
@@ -42,17 +64,17 @@ public class ChessMan{
 			
 		}
 	}
-	public class Bishop extends ChessMan{
-		public int row;
-		public int col;
+	public static class King extends ChessMan{
 		public String color;
 		public boolean alive;
+		public int val;
+		public int position;
 		
-		public Bishop(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
+		public King(int position, String color, boolean alive, int val){
 			this.color = color;
 			this.alive = alive;
+			this.val = val;
+			this.position = position;
 		}
 		
 		public void move(){
@@ -63,17 +85,17 @@ public class ChessMan{
 			
 		}
 	}
-	public class King extends ChessMan{
-		public int row;
-		public int col;
+	public static class Queen extends ChessMan{
 		public String color;
 		public boolean alive;
+		public int val;
+		public int position;
 		
-		public King(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
+		public Queen(int position, String color, boolean alive, int val){
 			this.color = color;
 			this.alive = alive;
+			this.val = val;
+			this.position = position;
 		}
 		
 		public void move(){
@@ -84,38 +106,17 @@ public class ChessMan{
 			
 		}
 	}
-	public class Queen extends ChessMan{
-		public int row;
-		public int col;
+	public static class Pawn extends ChessMan{
 		public String color;
 		public boolean alive;
+		public int val;
+		public int position;
 		
-		public Queen(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
+		public Pawn(int position, String color, boolean alive, int val){
 			this.color = color;
 			this.alive = alive;
-		}
-		
-		public void move(){
-			
-		}
-		
-		public void take(){
-			
-		}
-	}
-	public class Piece extends ChessMan{
-		public int row;
-		public int col;
-		public String color;
-		public boolean alive;
-		
-		public Piece(int row, int col, String color, boolean alive){
-			this.row = row;
-			this.col = col;
-			this.color = color;
-			this.alive = alive;
+			this.val = val;
+			this.position = position;
 		}
 		
 		public void move(){
