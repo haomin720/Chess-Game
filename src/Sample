@@ -1,0 +1,82 @@
+import processing.core.*;
+
+public class Sample extends PApplet
+{
+	static final float size = 600/8.0f;
+	
+	PImage elephant;
+	float elephantX;
+	float elephantY;
+	
+	PImage dragging;
+	float xOffset;
+	float yOffset;
+		
+	public void settings()
+	{
+		size(800,600);
+	}
+	
+	public void setup()
+	{
+		elephant = loadImage("images/elephant-head.png");
+		elephantX = width/2;
+		elephantY = height/2;
+		dragging = null;
+		xOffset = 0;
+		yOffset = 0;
+		imageMode(CENTER);
+	}
+	
+	public void draw()
+	{
+		background(0);
+		
+		// draw board
+		stroke(255);
+		for(int i=0;i<=8;i++)
+		{
+			// draw columns
+			line(100+i*size,0,100+i*size,height);
+			// draw rows
+			line(100,i*size,700,i*size);
+		}
+		
+		// start dragging
+		if(mousePressed && dragging == null)
+			if( Math.abs( elephantX-mouseX ) < elephant.width/2 && 
+			    Math.abs( elephantY-mouseY ) < elephant.height/2 )
+			{
+				dragging = elephant;
+				xOffset = elephantX - mouseX;
+				yOffset = elephantY - mouseY;				
+			}
+		// continue dragging
+		if(dragging != null)
+		{
+			elephantX = mouseX + xOffset;
+			elephantY = mouseY + yOffset;			
+		}
+		// stop dragging
+		if(!mousePressed) 
+		{
+			dragging = null;
+			
+			// snap elephant into closest square
+			int row = (int)(elephantY / size);
+			int column = (int)((elephantX-100) / size);
+			elephantY = (row+0.5f) * size;
+			elephantX = (column+0.5f) * size + 100;
+		}
+
+		
+		
+		// draw elephant
+		image(elephant,elephantX,elephantY);
+	}
+	
+	public static void main(String[] args)
+	{
+		PApplet.main(new String[] {"Sample"});
+	}
+}
