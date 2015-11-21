@@ -45,10 +45,10 @@ public class PlayGame {
 		board[0][6] = tmp;
 		//bishops
 		ChessMan.Bishop bishop1 = new ChessMan.Bishop(83, "black", true, 3);
-		tmp = new Block (83, "black", bishop1, false);
+		tmp = new Block (83, "white", bishop1, false);
 		board[0][2] = tmp;
 		ChessMan.Bishop bishop2 = new ChessMan.Bishop(86, "black", true, 3);
-		tmp = new Block (86, "white", bishop2, false);
+		tmp = new Block (86, "black", bishop2, false);
 		board[0][5] = tmp;
 		//queen
 		ChessMan.Queen queen = new ChessMan.Queen(84, "black", true, 9);
