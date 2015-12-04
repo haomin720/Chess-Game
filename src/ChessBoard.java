@@ -12,8 +12,4 @@ public class ChessBoard {
 	public ChessBoard(Block[][] board){
 		this.board = board;
 	}
-	
-	public void boardInitialization(){
-		
-	}
 }

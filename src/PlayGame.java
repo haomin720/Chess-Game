@@ -1,6 +1,7 @@
 
 public class PlayGame {
 	public ChessBoard gameBoard;
+	
 
 	public void setUp(){
 		Block [][] board = new Block [8][8];
